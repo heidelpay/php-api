@@ -19,53 +19,14 @@ namespace Heidelpay\PhpApi\PaymentMethodes;
  */
 class PayPalPaymentMethod extends AbstractPaymentMethod
 {
-    
-    /**
-     * Payment code for this payment method
-     *
-     * @var string payment code
-     */
-    protected $_paymentCode = 'VA';
-    
-    /**
-     * Weather this Payment method can authorise transactions or not
-     *
-     * @var boolean canAuthorise
-     */
-    protected $_canAuthorise = true;
-    
-    /**
-     * Weather this Payment method can refund transactions or not
-     *
-     * @var boolean canRefund
-     */
-    protected $_canRefund = true;
-    
-    /**
-     * Weather this Payment method can reversal transactions or not
-     *
-     * @var boolean canReversal
-     */
-    protected $_canReversal = true;
-    
-    /**
-     * Weather this Payment method can capture transactions or not
-     *
-     * @var boolean canCapture
-     */
-    protected $_canCapture = true;
-    
-    /**
-     * Weather this Payment method can debit transactions or not
-     *
-     * @var boolean canDebit
-     */
-    protected $_canDebit = true;
-        
-    /**
-     * Payment brand name for this payment method
-     *
-     * @var string brand name
-     */
-    protected $_brand = "PAYPAL";
+    public function __construct()
+    {
+        $this->_paymentCode = 'VA';
+        $this->_canAuthorise = true;
+        $this->_canCapture = true;
+        $this->_canDebit = true;
+        $this->_canRefund = true;
+        $this->_canReversal = true;
+        $this->_brand = "PAYPAL";
+    }
 }

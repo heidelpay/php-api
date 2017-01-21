@@ -33,77 +33,77 @@ abstract class AbstractPaymentMethod
      * @var string url for heidelpay api connection sandbox system
      */
     protected $_sandboxUrl     = 'https://test-heidelpay.hpcgw.net/ngw/post';
-    
+
     /**
      * HTTP Adapter for payment connection
      *
-     * @var \Heidelpay\PhpApi/Adapter
+     * @var \Heidelpay\PhpApi\Adapter
      */
     protected $_adapter = null;
-    
+
     /**
      * Heidelpay request object
      *
      * @var \Heidelpay\PhpApi\Request
      */
     protected $_request = null;
-    
+
     /**
      * Heidelpay request array
      *
      * @var array request
      */
     protected $_requestArray = null;
-    
+
     /**
      * Heidelpay response object
      *
      * @var \Heidelpay\PhpApi\Response
      */
     protected $_response = null;
-    
+
     /**
      * Heidelpay response array
      *
      * @var array response
      */
     protected $_responseArray = null;
-    
+
     /**
      * Payment code for this payment method
      *
      * @var string payment code
      */
     protected $_paymentCode = null;
-    
+
     /**
      * Payment brand name for this payment method
      *
      * @var string brand name
      */
     protected $_brand = null;
-    
+
     /**
      * Weather this Payment method can authorise transactions or not
      *
      * @var boolean canAuthorise
      */
     protected $_canAuthorise = false;
-    
+
     /**
      * Weather this Payment method can capture transactions or not
      *
      * @var boolean canCapture
      */
     protected $_canCapture = false;
-    
+
     /**
      * Weather this Payment method can debit transactions or not
      *
      * @var boolean canDebit
      */
     protected $_canDebit = false;
-    
+
     /**
      * Weather this Payment method can refund transactions or not
      *
@@ -185,7 +185,7 @@ abstract class AbstractPaymentMethod
     {
         $this->_request = $Request;
     }
-    
+
     /**
      * Get payment request object
      *
@@ -196,10 +196,10 @@ abstract class AbstractPaymentMethod
         if ($this->_request === null) {
             return $this->_request = new \Heidelpay\PhpApi\Request();
         }
-        
+
         return  $this->_request;
     }
-    
+
     /**
      * Get response object
      *
@@ -209,7 +209,7 @@ abstract class AbstractPaymentMethod
     {
         return $this->_response;
     }
-    
+
     /**
      * Set a HTTP Adapter for payment communication
      *
@@ -219,7 +219,7 @@ abstract class AbstractPaymentMethod
     {
         $this->_adapter = $adapter;
     }
-    
+
     /**
      * Get HTTP Adapter for payment communication
      *
@@ -229,7 +229,7 @@ abstract class AbstractPaymentMethod
     {
         return  $this->_adapter;
     }
-    
+
     /**
      * Get url of the used payment api
      *
@@ -240,17 +240,17 @@ abstract class AbstractPaymentMethod
     public function getPaymentUrl()
     {
         $mode = $this->getRequest()->getTransaction()->getMode();
-        
+
         if ($mode === null) {
             throw new \Exception('Transaction mode is not set');
             return false;
         } elseif ($mode == 'LIVE') {
             return $this->_liveUrl;
         }
-            
+
         return $this->_sandboxUrl;
     }
-    
+
     /**
      * Payment type authorisation
      *
@@ -269,20 +269,20 @@ abstract class AbstractPaymentMethod
             if ($this->_brand !== null) {
                 $this->getRequest()->getAccount()->set('brand', $this->_brand);
             }
-        
+
             $uri = $this->getPaymentUrl();
             $this->_requestArray = $this->getRequest()->prepareRequest();
-        
+
             if ($this->_dryRun === false and $uri !== null and is_array($this->_requestArray)) {
                 list($this->_responseArray, $this->_response) = $this->getRequest()->send($uri, $this->_requestArray, $this->getAdapter());
             }
-        
+
             return $this;
         }
        
         return false;
     }
-    
+
     /**
      * Payment type authorisation on registration
      *
@@ -302,17 +302,17 @@ abstract class AbstractPaymentMethod
             $this->getRequest()->getIdentification()->set('referenceId', $PaymentRefernceId);
             $uri = $this->getPaymentUrl();
             $this->_requestArray = $this->getRequest()->prepareRequest();
-    
+
             if ($this->_dryRun === false and $uri !== null and is_array($this->_requestArray)) {
                 list($this->_responseArray, $this->_response) = $this->getRequest()->send($uri, $this->_requestArray, $this->getAdapter());
             }
-    
+
             return $this;
         }
-    
+
         return false;
     }
-    
+
     /**
      * Payment type capture
      *
@@ -333,20 +333,20 @@ abstract class AbstractPaymentMethod
             if ($this->_brand !== null) {
                 $this->getRequest()->getAccount()->set('brand', $this->_brand);
             }
-        
+
             $uri = $this->getPaymentUrl();
             $this->_requestArray = $this->getRequest()->prepareRequest();
-        
+
             if ($this->_dryRun === false and $uri !== null and is_array($this->_requestArray)) {
                 list($this->_responseArray, $this->_response) = $this->getRequest()->send($uri, $this->_requestArray, $this->getAdapter());
             }
-        
+
             return $this;
         }
        
         return false;
     }
-    
+
     /**
      * Payment type debit
      *
@@ -362,20 +362,20 @@ abstract class AbstractPaymentMethod
             if ($this->_brand !== null) {
                 $this->getRequest()->getAccount()->set('brand', $this->_brand);
             }
-             
+
             $uri = $this->getPaymentUrl();
             $this->_requestArray = $this->getRequest()->prepareRequest();
-        
+
             if ($this->_dryRun === false and $uri !== null and is_array($this->_requestArray)) {
                 list($this->_responseArray, $this->_response) = $this->getRequest()->send($uri, $this->_requestArray, $this->getAdapter());
             }
-             
+
             return $this;
         }
-         
+
         return false;
     }
-    
+
     /**
      * Payment type debit on registration
      *
@@ -396,17 +396,17 @@ abstract class AbstractPaymentMethod
             $this->getRequest()->getIdentification()->set('referenceId', $PaymentRefernceId);
             $uri = $this->getPaymentUrl();
             $this->_requestArray = $this->getRequest()->prepareRequest();
-             
+
             if ($this->_dryRun === false and $uri !== null and is_array($this->_requestArray)) {
                 list($this->_responseArray, $this->_response) = $this->getRequest()->send($uri, $this->_requestArray, $this->getAdapter());
             }
-    
+
             return $this;
         }
-    
+
         return false;
     }
-    
+
     /**
      * Payment type rebill
      *
@@ -429,20 +429,20 @@ abstract class AbstractPaymentMethod
             if ($this->_brand !== null) {
                 $this->getRequest()->getAccount()->set('brand', $this->_brand);
             }
-            
+
             $uri = $this->getPaymentUrl();
             $this->_requestArray = $this->getRequest()->prepareRequest();
-    
+
             if ($this->_dryRun === false and $uri !== null and is_array($this->_requestArray)) {
                 list($this->_responseArray, $this->_response) = $this->getRequest()->send($uri, $this->_requestArray, $this->getAdapter());
             }
-    
+
             return $this;
         }
-    
+
         return false;
     }
-    
+
     /**
      * Payment type refund
      *
@@ -464,20 +464,20 @@ abstract class AbstractPaymentMethod
             if ($this->_brand !== null) {
                 $this->getRequest()->getAccount()->set('brand', $this->_brand);
             }
-             
+
             $uri = $this->getPaymentUrl();
             $this->_requestArray = $this->getRequest()->prepareRequest();
-             
+
             if ($this->_dryRun === false and $uri !== null and is_array($this->_requestArray)) {
                 list($this->_responseArray, $this->_response) = $this->getRequest()->send($uri, $this->_requestArray, $this->getAdapter());
             }
-             
+
             return $this;
         }
-         
+
         return false;
     }
-    
+
     /**
      * Payment type reversal
      *
@@ -500,20 +500,20 @@ abstract class AbstractPaymentMethod
             if ($this->_brand !== null) {
                 $this->getRequest()->getAccount()->set('brand', $this->_brand);
             }
-    
+
             $uri = $this->getPaymentUrl();
             $this->_requestArray = $this->getRequest()->prepareRequest();
-    
+
             if ($this->_dryRun === false and $uri !== null and is_array($this->_requestArray)) {
                 list($this->_responseArray, $this->_response) = $this->getRequest()->send($uri, $this->_requestArray, $this->getAdapter());
             }
-    
+
             return $this;
         }
-    
+
         return false;
     }
-    
+
     /**
      * Payment type registration
      *
@@ -532,17 +532,17 @@ abstract class AbstractPaymentMethod
             if ($this->_brand !== null) {
                 $this->getRequest()->getAccount()->set('brand', $this->_brand);
             }
-    
+
             $uri = $this->getPaymentUrl();
             $this->_requestArray = $this->getRequest()->prepareRequest();
-        
+
             if ($this->_dryRun === false and $uri !== null and is_array($this->_requestArray)) {
                 list($this->_responseArray, $this->_response) = $this->getRequest()->send($uri, $this->_requestArray, $this->getAdapter());
             }
-    
+
             return $this;
         }
-    
+
         return false;
     }
 }

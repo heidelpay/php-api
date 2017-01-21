@@ -20,76 +20,23 @@ namespace Heidelpay\PhpApi\PaymentMethodes;
  */
 class DebitCardPaymentMethod extends AbstractPaymentMethod
 {
-    /**
-     * Payment code for this payment method
-     *
-     * @var string payment code
-     */
-    protected $_paymentCode = 'DC';
-    
-    /**
-     * Weather this Payment method can authorise transactions or not
-     *
-     * @var boolean canAuthorise
-     */
-    protected $_canAuthorise = true;
-    
-    /**
-     * Weather this Payment method can capture transactions or not
-     *
-     * @var boolean canCapture
-     */
-    protected $_canCapture = true;
-    
-    /**
-     * Weather this Payment method can debit transactions or not
-     *
-     * @var boolean canDebit
-     */
-    protected $_canDebit = true;
-    
-    /**
-     * Weather this Payment method can refund transactions or not
-     *
-     * @var boolean canRefund
-     */
-    protected $_canRefund = true;
-    
-    /**
-     * Weather this Payment method can reversal transactions or not
-     *
-     * @var boolean canReversal
-     */
-    protected $_canReversal = true;
-    
-    /**
-     * Weather this Payment method can rebill transactions or not
-     *
-     * @var boolean canRebill
-     */
-    protected $_canRebill = true;
-    
-    /**
-     * Weather this Payment method can register account data or not
-     *
-     * @var boolean canRegistration
-     */
-    protected $_canRegistration = true;
-    
-    /**
-     * Weather this Payment method can debit on registered account data or not
-     *
-     * @var boolean canDebitOnRegistration
-     */
-    protected $_canDebitOnRegistration = true;
-    
-    /**
-     * Weather this Payment method can authorize on registered account data or not
-     *
-     * @var boolean canAuthorizeOnRegistration
-     */
-    protected $_canAuthorizeOnRegistration = true;
-    
+
+    public function __construct()
+    {
+        $this->_paymentCode = 'DC';
+        $this->_canAuthorise = true;
+        $this->_canCapture = true;
+        $this->_canDebit = true;
+        $this->_canRefund = true;
+        $this->_canReversal = true;
+        $this->_canRebill = true;
+        $this->_canRegistration = true;
+        $this->_canDebitOnRegistration = true;
+        $this->_canAuthorizeOnRegistration = true;
+
+    }
+
+
     /**
      * Payment type authorisation
      *

@@ -19,32 +19,12 @@ namespace Heidelpay\PhpApi\PaymentMethodes;
  */
 class PrepaymentPaymentMethod extends AbstractPaymentMethod
 {
-    
-    /**
-     * Payment code for this payment method
-     *
-     * @var string payment code
-     */
-    protected $_paymentCode = 'PP';
-    
-    /**
-     * Weather this Payment method can authorise transactions or not
-     *
-     * @var boolean canAuthorise
-     */
-    protected $_canAuthorise = true;
-    
-    /**
-     * Weather this Payment method can refund transactions or not
-     *
-     * @var boolean canRefund
-     */
-    protected $_canRefund = true;
-    
-    /**
-     * Weather this Payment method can reversal transactions or not
-     *
-     * @var boolean canReversal
-     */
-    protected $_canReversal = true;
+
+    public function __construct()
+    {
+        $this->_paymentCode = 'PP';
+        $this->_canAuthorise = true;
+        $this->_canRefund = true;
+        $this->_canReversal = true;
+    }
 }
