@@ -20,13 +20,12 @@ namespace Heidelpay\PhpApi\PaymentMethodes;
  */
 class SofortPaymentMethod extends AbstractPaymentMethod
 {
-
     public function __construct()
     {
-       $this->_paymentCode = 'OT';
-       $this->_canAuthorise = true;
-       $this->_canRefund = true;
-       $this->_canReversal = true;
-       $this->_brand = "SOFORT";
+        $this->_paymentCode = 'OT';
+        $this->_canAuthorise = true;
+        $this->_canRefund = true;
+        $this->_canReversal = true;
+        $this->_brand = "SOFORT";
     }
 }

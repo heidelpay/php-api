@@ -19,7 +19,6 @@ namespace Heidelpay\PhpApi\PaymentMethodes;
  */
 class PrepaymentPaymentMethod extends AbstractPaymentMethod
 {
-
     public function __construct()
     {
         $this->_paymentCode = 'PP';

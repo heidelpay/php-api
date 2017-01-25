@@ -20,7 +20,6 @@ namespace Heidelpay\PhpApi\PaymentMethodes;
  */
 class EPSPaymentMethod extends AbstractPaymentMethod
 {
-
     public function __construct()
     {
         $this->_paymentCode = 'OT';

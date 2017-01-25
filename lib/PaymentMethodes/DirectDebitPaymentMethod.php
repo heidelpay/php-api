@@ -20,7 +20,6 @@ namespace Heidelpay\PhpApi\PaymentMethodes;
  */
 class DirectDebitPaymentMethod extends AbstractPaymentMethod
 {
-
     public function __construct()
     {
         $this->_paymentCode = 'DD';
@@ -34,8 +33,5 @@ class DirectDebitPaymentMethod extends AbstractPaymentMethod
         $this->_canDebitOnRegistration = true;
         $this->_canAuthorizeOnRegistration = true;
         $this->_brand = "SOFORT";
-
-
     }
-
 }
