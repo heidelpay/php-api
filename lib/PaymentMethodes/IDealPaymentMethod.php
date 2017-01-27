@@ -20,25 +20,10 @@ namespace Heidelpay\PhpApi\PaymentMethodes;
  */
 class IDealPaymentMethod extends AbstractPaymentMethod
 {
-    
-    /**
-     * Payment code for this payment method
-     *
-     * @var string payment code
-     */
-    protected $_paymentCode = 'OT';
-    
-    /**
-     * Weather this Payment method can authorise transactions or not
-     *
-     * @var boolean canAuthorise
-     */
-    protected $_canAuthorise = true;
-    
-    /**
-     * Payment brand name for this payment method
-     *
-     * @var string brand name
-     */
-    protected $_brand = "IDEAL";
+    public function __construct()
+    {
+        $this->_paymentCode = 'OT';
+        $this->_canAuthorise = true;
+        $this->_brand = "IDEAL";
+    }
 }

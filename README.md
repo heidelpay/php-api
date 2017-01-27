@@ -5,20 +5,22 @@
 This is the php payment api for heidelpay. The library will help you to easily integrate heidelpay into your application.
 
 
-## Currently supported payment methods:
+## Currently supported payment methods and features
 
-* credit card
-* debit card
-* prepayment
-* Sofort
-* PayPal
-* direct debit
-* iDeal
-* Giropay
-* Przelewy24
-* PostFinance Card
-* PostFinance EFinance
-* EPS
+| Method              | Authorize| Capture | Debit | Refund | Reversal | Rebill | Registration | DebitOnRegistration | AuthorizeOnRegistration |
+| ------------------- | -------- | ------- | ----- | ------ | -------- | ------ | ------------ | ------------------- | ----------------------- |
+|CreditCard           | ✓        | ✓       | ✓     | ✓      | ✓        | ✓      | ✓            | ✓                   | ✓                       |
+|DebitCard            | ✓        | ✓       | ✓     | ✓      | ✓        | ✓      | ✓            | ✓                   | ✓                       |
+|DirectDebit          | ✓        | ✓       | ✓     | ✓      | ✓        | ✓      | ✓            | ✓                   | ✓                       |
+|EPS                  | ✓        |         |       | ✓      | ✓        |        |              |                     |                         |
+|Giropay              | ✓        |         |       | ✓      | ✓        |        |              |                     |                         |
+|IDeal                | ✓        |         |       |        |          |        |              |                     |                         |
+|PayPal               | ✓        | ✓       | ✓     | ✓      | ✓        |        |              |                     |                         |
+|PostFinanceCard      | ✓        |         |       | ✓      | ✓        |        |              |                     |                         |
+|PostFinanceEFinance  | ✓        |         |       | ✓      | ✓        |        |              |                     |                         |
+|Prepayment           | ✓        |         |       | ✓      | ✓        |        |              |                     |                         |
+|Przelewy24           | ✓        |         |       | ✓      | ✓        |        |              |                     |                         |
+|Sofort               | ✓        |         |       | ✓      | ✓        |        |              |                     |                         |
 
 ### SYSTEM REQUIREMENTS
 
