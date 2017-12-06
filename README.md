@@ -11,6 +11,7 @@
 
 This is the php payment api for heidelpay. The library will help you to easily integrate heidelpay into your application.
 
+> **ATTENTION: This package is abandoned and replaced by [heidelpay/php-payment-api package.](https://packagist.org/packages/heidelpay/php-payment-api)**
 
 ## Currently supported payment methods:
 
